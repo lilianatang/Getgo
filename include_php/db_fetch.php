@@ -44,5 +44,62 @@ class DB_Fetch {
 
 	}
 
-	
+	/* get user info from email and password */
+	public function getUserByEmailAndPassword($email, $password) {
+		$stm_id = $this->connection->prepare("SELECT * FROM users WHERE email = ?");
+		$stm_id->bind_param("s", $email);
+
+		if ($stm_id->execute()) {
+			$user = $stm_id->get_result()->fetch_assoc();
+			$stm_id->close();
+
+			//verifying user password
+			$salt = $user['salt'];
+			$encrypted_password = $user['encrypted_password'];
+			$hash = $this->checkhashSSHA($salt, $password);
+
+			if ($encrypted_password == $hash) {
+
+				return $user;
+			}
+		} else {
+			return NULL;
+		}
+
+	}
+	/* check if the user exists in the database by email, returns false if not, true otherwise */
+	public function isUserExisted($email) {
+		$stm_id = $this->connection->prepare("SELECT email from users WHERE email = ?");
+		$stm_id->bind_param("s", $email);
+		$stm_id->execute();
+		$stm_id->store_result();
+
+		if ($stm_id->num_rows > 0) {
+			//user is existed
+			$stm_id->close();
+			return true;
+		} else {
+			//user is not existed
+			$stm_id->close();
+			return false;
+		}
+	}
+
+	/* encrypting password and returning an array of salt and encrypted password */
+	public function hashing($password) {
+		$salt = sha1(rand());
+		$salt = substr($salt, 0, 10);
+		$encrypted = base64_encode(sha1($password, $salt, true), $salt);
+		$hash = array("salt" => $salt, "encrypted" => $encrypted);
+	       	return $hash;
+	}		
+
+
+	/* decrypting password with the given password and salt to return hash string value */
+	public function checkhashing($salt, $password) {
+		$hash = base64_encode(sha1($password, $salt, true), $salt);
+		return $hash;
+	}
 }
+
+?>
