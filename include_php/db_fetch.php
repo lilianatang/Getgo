@@ -96,7 +96,7 @@ class DB_Fetch {
 
 
 	/* decrypting password with the given password and salt to return hash string value */
-	public function checkhashing($salt, $password) {
+	public function check_hashing($salt, $password) {
 		$hash = base64_encode(sha1($password, $salt, true), $salt);
 		return $hash;
 	}
