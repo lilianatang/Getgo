@@ -266,3 +266,80 @@ INSERT INTO `course` (`course_id`, `course_name`, `credits`, `description`) VALU
 (151,	'Recreation Leadership', '3 or 5' ),
 (152,	'Tourism Studies', '3 or 5'),
 (153, 'Russian 35', '5');
+
+
+INSERT INTO `department` (`department_id`, `university_id`, `department_name`, `average_mark`) VALUES
+(1	,1	,'Faculty of Science'	,	70),
+(2	,1	,'Faculty of Arts'	,	70),
+(3	,1	,'Faculty of Engineering'	,70	),
+(4	,1	,'Faculty of Nursing'	,70	),
+(5	,1	,'Faculty of Agricultural, Life, and Environmental Science'	,70	),
+(6	,1	,'Faculty of Physical Education and Recreaion'	,70	),
+(7	,2	,'School of Business'	,65	),
+(8	,2	,'Faculty of Nursing',	65),
+(9	,2	,'Faculty of Science',	65),
+(10	,2	,'Faculty of Arts', 65),
+(11	,2	,'Faculty of Engineering Transfer',	70),
+(12	,2	,'Faculty of Fine Arts',	60),
+(13	,2	,'Faculty of Communication Studies',	65),
+(14	,4	,'Faculty of Science',	60),
+(15	,4	,'Bachelor of Managment program', 	65),
+(16	,4	,'Bachelor of Arts program',	60),
+(17	,4	,'Bachelor of Management & Bachelor of Science in Chemistry Dual Degrees',	65),
+(18	,3	,'3-year B.A Biology',	60),
+(19	,3	,'3-year B.A Chemistry',	60),
+(20	,3	,'4-year B.A Psychology',	60),
+(21	,3	,'4-year B.A Environmental Studies',	60),
+(22	,3	,'4-year B.A Environmental Studies Chemistry',	60),
+(23	,3	,'4-year B.A Politics-History-Economics',	60),
+(24	,3	,'3-year B.Sc Biology',	60),
+(25	,3	,'3-year B.Sc Chemistry',	60),
+(26	,3	,'4-year B.Sc Computing Science',60),
+(27	,3	,'4-year B.Sc Environmental Studies Biology',60),
+(28	,3	,'4-year Environmental Studies Chemistry', 60),
+(29	,3	,'4-year B.Sc. Environmental Studies Computing Science',	60),
+(30	,3	,'4-year B.Com	60', 60);
+
+
+INSERT INTO `major` (`major_id`, `department_id`, `university_id`, `name`) VALUES
+(1,	1,	1,	'Applied Mathematics'),
+(2,	1,	1,	'Astrophysics'),
+(3,	1,	1,	'Atmospheric Science'),
+(4,	1,	1,	'Biochemistry'),
+(5,	1,	1,	'Biological Science'),
+(6,	1,	1,	'Biology'),
+(7,	1,	1,	'Cell Biology'),
+(8,	1,	1,	'Chemistry'),
+(9,	1,	1,	'Computing Science'),
+(10,	1,	1,	'Earth and Atmospheric Science'),
+(11,	1,	1,	'Ecology, Evolution and Environmental Biology'),
+(12,	1,	1,	'Environmental Earth Science'),
+(13,	1,	1,	'Geology'),
+(14,	1,	1,	'Geophysics'),
+(15,	1,	1,	'Immunology and Infection'),
+(16,	1,	1,	'Integrative Physiology'),
+(17,	1,	1,	'Mathematical Physics'),
+(18,	1,	1,	'Mathematics'),
+(19,	1,	1,	'Molecular, Cellular and Developmental Biology'),
+(20,	1,	1,	'Neuroscience'),
+(21,	1,	1,	'Paleontology'),
+(22,	1,	1,	'Pharmacology'),
+(23,	1,	1,	'Physical Science'),
+(24,	1,	1,	'Physics'),
+(25,	1,	1,	'Physiology'),
+(26,	1,	1,	'Planning'),
+(27,	1,	1,	'Psychology'),
+(28,	1,	1,	'Science and Education'),
+(29,	1,	1,	'Statistics'),
+(30,	1,	1,	'Undeclared');
+
+
+INSERT INTO `instituition` (`university_id`, `school_name`, `city`, `province`, `country`, `postal_code`, `type`) VALUES
+
+(1,	'University of Alberta',	'Edmonton',	'AB',	'Canada',	'T6G 2R3', 'University'),
+(2,	'Macewan University', 	'Edmonton',	'AB',	'Canada',	'T5J 4S2',	'University'),
+(3,	'Kings University',	'Edmonton',	'AB',	'Canada',	'T6B 2H3',	'University'),
+(4,	'Concordia',	'Edmonton',	'AB',	'Canada',	'T5B 4E4',	'University');
+
+
+
